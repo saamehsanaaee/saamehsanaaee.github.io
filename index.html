@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Saameh Sanaaee</title>
+
+		<link rel="icon" type="image/png" href="assets/img/logo.png">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<button class="theme-toggle" id="theme-toggle" title="Light/Dark">
+			<span class="material-symbols-outlined">dark_mode</span>
+		</button>
+
+		<div class="container">
+			<img src="assets/img/logo.png" alt="Saameh's logo: two curved lines resembling the letter S." class="profile-logo">
+
+			<h1>Saameh Sanaaee</h1>
+			<h2>Neurobiology and Neuroimaging Researcher</h2>
+			<h2>Cell and Molecular Biologist and SciComms Enthusiast</h2>
+
+			<p>
+				Hey there! Welcome to my page!
+			</p>
+
+			<p>
+				I'm Saameh, a junior researcher working with a wonderful group of people on task-based fMRI data. We're using BOLD signal time series to create models of human Working Memory, especially its architecture and capacity.
+			</p>
+
+			<p>
+				My primary responsibility has been the design and creation of our neural networks. We've created parallel GNN-LSTM models and MLPs (thanks to Neuromatch Academy and the Impact Scholars Program). Right now, we're focusing on improving those models and adding 4D Convolutional and 3D-UNet modules to increase their utility. This will allow us to study Working Memory and its structure and function with more granularity, using our little WoMAD model.
+			</p>
+
+			<img src="assets/img/in_the_lab.jpeg" alt="Saameh in the lab, looking at histological samples through a microscope." class="lab-photo">
+
+			<h2>My links on the [mostly decentralized] interwebs!</h2>
+
+			<ul class="socials-list">
+				<li>
+					<a href="https://orcid.org/0000-0002-8858-9117" target="_blank" title="ORCID">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">account_circle</span>
+						</span>
+						<span class="socials-label">ORCID</span>
+				</li>
+
+				<li>
+					<a href="https://scholar.google.com/citations?user=bQd_R9IAAAAJ" target="_blank" title="Google Scholar">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">school</span>
+						</span>
+						<span class="socials-label">Google Scholar</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://www.researchgate.net/Saameh-Sanaaee-2" target="_blank" title="ResearchGate">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">groups</span>
+						</span>
+						<span class="socials-label">ResearchGate</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://github.com/saamehsanaaee" target="_blank" title="GitHub">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">code</span>
+						</span>
+						<span class="socials-label">GitHub</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/in/saameh-sanaaee" target="_blank" title="LinkedIn">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">badge</span>
+						</span>
+						<span class="socials-label">LinkedIn</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="mailto:saameh.sanaaee@neuromatchacademy.org" target="_blank" title="Email">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">mail</span>
+						</span>
+						<span class="socials-label">Email</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://bsky.app/profile/saamehsanaaee.bsky.social" target="_blank" title="Bluesky">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">forum</span>
+						</span>
+						<span class="socials-label">Bluesky</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://www.youtube.com/@SaamehSanaaee" target="_blank" title="YouTube">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">play_circle</span>
+						</span>
+						<span class="socials-label">YouTube</span>
+					</a>
+				</li>
+			</ul>
+
+			<div class="cv-button-wrapper">
+				<a href="sanaaee_cv.pdf" target="_blank" class="cv-button">
+					Check out my CV!
+				</a>
+			</div>
+
+			<div class="footer">
+				&copy; 2025 Saameh Sanaaee
+			</div>
+
+		</div>
+
+		<script>
+		const toggleButton = document.getElementById("theme-toggle");
+		const body = document.body;
+
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme === "dark") {
+			body.classList.add("dark");
+		} else if (savedTheme === "light") {
+			body.classList.remove("dark");
+		} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			body.classList.add("dark");
+		}
+
+		function updateToggleIcon() {
+			if (body.classList.contains("dark")) {
+				toggleButton.innerHTML = '<span class="material-symbols-outlined">sunny</span>';
+			} else {
+				toggleButton.innerHTML = '<span class="material-symbols-outlined">dark_mode</span>';
+			}
+		}
+
+		toggleButton.addEventListener("click", () => {
+			body.classList.toggle("dark");
+			const currentTheme = body.classList.contains("dark") ? "dark" : "light";
+			localStorage.setItem("theme", currentTheme);
+			updateToggleIcon();
+		});
+
+		updateToggleIcon();
+
+		</script>
+
+	</body>
+
+</html>
