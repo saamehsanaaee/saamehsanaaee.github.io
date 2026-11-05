@@ -1,0 +1,32 @@
+name: Compile LaTeX CV
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'sanaaee_cv.tex'
+      - '.github/workflows/latex_cv_compiler.yml'
+  workflow_dispatch:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document (using XeLaTeX for moderncv)
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: sanaaee_cv.tex
+          compiler: xelatex
+
+      - name: Commit PDF to repository
+        uses: stefanzweifel/git-auto-commit-action@v5 
+        with:
+          commit_message: 'CI: Auto-compiled sanaaee_cv.pdf'
+          file_pattern: 'sanaaee_cv.pdf'
+          commit_options: '--no-verify'

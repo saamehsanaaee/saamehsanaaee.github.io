@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Saameh Sanaaee</title>
+		<link rel="icon" type="image/png" href="assets/img/favicon.png">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<button class="theme-toggle" id="theme-toggle" title="Light/Dark">
+			<span class="material-symbols-outlined">dark_mode</span>
+		</button>
+
+		<div class="container">
+			<img src="assets/img/favicon.png" alt="Saameh's logo: Two curved lines resembling the letter S. Together, they look like a very simple figure of DNA." class="profile-logo">
+
+			<h1>Saameh Sanaaee</h1>
+			<h2>Nanobiotechnology Master's Student</h2>
+
+			<p>
+				Welcome to my page!
+			</p>
+
+			<p>
+				I'm Saameh, a nanobiotechnology master's student currently conducting neuroimaging research in a self-directed, side project while preparing for my thesis project.
+				My focus is on ML, DL, and neural networks applied to BOLD signals of task-based fMRI data.
+			</p>
+
+			<p>
+				As a cell and molecular biology gradute, I've been lucky to have training in both wet and dry labs.
+				So, I have worked with different blends of <i>in vivo</i>, <i>in vitro</i>, and <i>in silico</i> techniques with most of my outputs being computational.
+			</p>
+
+			<hr>
+
+			<h2>Here are my links on the interwebs!</h2>
+
+			<ul class="socials-list">
+				<li>
+					<a href="https://orcid.org/0000-0002-8858-9117" target="_blank" title="ORCID">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">account_circle</span>
+						</span>
+						<span class="socials-label">ORCID</span>
+				</li>
+
+				<li>
+					<a href="https://scholar.google.com/citations?user=bQd_R9IAAAAJ" target="_blank" title="Google Scholar">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">school</span>
+						</span>
+						<span class="socials-label">Google Scholar</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://www.researchgate.net/Saameh-Sanaaee-2" target="_blank" title="ResearchGate">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">groups</span>
+						</span>
+						<span class="socials-label">ResearchGate</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://github.com/saamehsanaaee" target="_blank" title="GitHub">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">code</span>
+						</span>
+						<span class="socials-label">GitHub</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/in/saameh-sanaaee" target="_blank" title="LinkedIn">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">badge</span>
+						</span>
+						<span class="socials-label">LinkedIn</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://bsky.app/profile/saamehsanaaee.bsky.social" target="_blank" title="Bluesky">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">forum</span>
+						</span>
+						<span class="socials-label">Bluesky</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="https://www.youtube.com/@SaamehSanaaee" target="_blank" title="YouTube">
+						<span class="socials-icon">
+							<span class="material-symbols-outlined">play_circle</span>
+						</span>
+						<span class="socials-label">YouTube</span>
+					</a>
+				</li>
+			</ul>
+
+			<div class="cv-button-wrapper">
+				<a href="sanaaee_cv.pdf" target="_blank" class="cv-button">
+					My CV
+				</a>
+			</div>
+
+			<div class="footer">
+				&copy; 2026 Saameh Sanaaee
+			</div>
+
+		</div>
+
+		<script>
+		const toggleButton = document.getElementById("theme-toggle");
+		const body = document.body;
+
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme === "dark") {
+			body.classList.add("dark");
+		} else if (savedTheme === "light") {
+			body.classList.remove("dark");
+		} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			body.classList.add("dark");
+		}
+
+		function updateToggleIcon() {
+			if (body.classList.contains("dark")) {
+				toggleButton.innerHTML = '<span class="material-symbols-outlined">sunny</span>';
+			} else {
+				toggleButton.innerHTML = '<span class="material-symbols-outlined">dark_mode</span>';
+			}
+		}
+
+		toggleButton.addEventListener("click", () => {
+			body.classList.toggle("dark");
+			const currentTheme = body.classList.contains("dark") ? "dark" : "light";
+			localStorage.setItem("theme", currentTheme);
+			updateToggleIcon();
+		});
+
+		updateToggleIcon();
+
+		</script>
+
+	</body>
+
+
+</html>
